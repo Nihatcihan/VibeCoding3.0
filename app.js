@@ -47,6 +47,7 @@ const inputQrFile = document.getElementById("input-qr-file");
 
 const modalDigitalTicket = document.getElementById("modal-digital-ticket");
 const btnCloseTicketModal = document.getElementById("btn-close-ticket-modal");
+const btnShareX = document.getElementById("btn-share-x");
 
 // Landing Page Elements
 const cdDays = document.getElementById("cd-days");
@@ -195,6 +196,15 @@ function setupEventListeners() {
     if (btnCloseTicketModal) {
         btnCloseTicketModal.addEventListener("click", () => {
             if (modalDigitalTicket) modalDigitalTicket.classList.add("hidden");
+        });
+    }
+
+    // X (Twitter) Share Button
+    if (btnShareX) {
+        btnShareX.addEventListener("click", () => {
+            const tweetText = encodeURIComponent("StellarPass üzerinden Web3 altyapısıyla #VibeCoding2026 Zirvesi biletlerimi aldım! Geleceği kodlamaya hazırım. 🚀💎");
+            const tweetUrl = `https://twitter.com/intent/tweet?text=${tweetText}`;
+            window.open(tweetUrl, '_blank');
         });
     }
     
