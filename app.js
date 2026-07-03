@@ -48,6 +48,14 @@ const inputQrFile = document.getElementById("input-qr-file");
 const modalDigitalTicket = document.getElementById("modal-digital-ticket");
 const btnCloseTicketModal = document.getElementById("btn-close-ticket-modal");
 
+// Landing Page Elements
+const cdDays = document.getElementById("cd-days");
+const cdHours = document.getElementById("cd-hours");
+const cdMinutes = document.getElementById("cd-minutes");
+const cdSeconds = document.getElementById("cd-seconds");
+const btnScrollToBuy = document.getElementById("btn-scroll-to-buy");
+const dashboardSection = document.getElementById("dashboard-section");
+
 const cardTransactionsHistory = document.getElementById("card-transactions-history");
 const txHistoryLoading = document.getElementById("tx-history-loading");
 const txHistoryEmpty = document.getElementById("tx-history-empty");
@@ -56,6 +64,7 @@ const txHistoryList = document.getElementById("tx-history-list");
 // Initialize Application
 window.addEventListener("DOMContentLoaded", async () => {
     setupEventListeners();
+    startCountdown();
     updateDiagnostics();
     
     initTheme();
@@ -192,6 +201,44 @@ function setupEventListeners() {
     if (inputQrFile) {
         inputQrFile.addEventListener("change", handleQrFileUpload);
     }
+    
+    // Landing Page Scroll
+    if (btnScrollToBuy && dashboardSection) {
+        btnScrollToBuy.addEventListener("click", () => {
+            dashboardSection.scrollIntoView({ behavior: 'smooth' });
+        });
+    }
+}
+
+// Countdown Logic
+function startCountdown() {
+    // Set target date (e.g., Oct 1, 2026)
+    const targetDate = new Date("October 1, 2026 09:00:00").getTime();
+    
+    // Update the count down every 1 second
+    const x = setInterval(function() {
+        const now = new Date().getTime();
+        const distance = targetDate - now;
+        
+        if (distance < 0) {
+            clearInterval(x);
+            if (cdDays) cdDays.innerText = "00";
+            if (cdHours) cdHours.innerText = "00";
+            if (cdMinutes) cdMinutes.innerText = "00";
+            if (cdSeconds) cdSeconds.innerText = "00";
+            return;
+        }
+        
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+        if (cdDays) cdDays.innerText = days < 10 ? "0" + days : days;
+        if (cdHours) cdHours.innerText = hours < 10 ? "0" + hours : hours;
+        if (cdMinutes) cdMinutes.innerText = minutes < 10 ? "0" + minutes : minutes;
+        if (cdSeconds) cdSeconds.innerText = seconds < 10 ? "0" + seconds : seconds;
+    }, 1000);
 }
 
 // Attempt to Auto-Connect if previously authorized

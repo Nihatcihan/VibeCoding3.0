@@ -18,7 +18,43 @@
     <!-- Interactive Background -->
     <div id="tsparticles" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; pointer-events: none;"></div>
     
-    <div class="app-container">
+    <!-- Landing Hero Section -->
+    <section id="landing-hero" class="hero-section">
+        <div class="hero-content">
+            <div class="hero-badge">🎟️ ERKEN ERİŞİM BİLETLERİ SATIŞTA</div>
+            <h1 class="hero-title">VibeCoding AI Summit <span>2026</span></h1>
+            <p class="hero-subtitle">Geleceği Kodlayanların Zirvesi</p>
+            
+            <div class="countdown-container">
+                <div class="countdown-box">
+                    <span id="cd-days" class="cd-number">00</span>
+                    <span class="cd-label">GÜN</span>
+                </div>
+                <div class="countdown-separator">:</div>
+                <div class="countdown-box">
+                    <span id="cd-hours" class="cd-number">00</span>
+                    <span class="cd-label">SAAT</span>
+                </div>
+                <div class="countdown-separator">:</div>
+                <div class="countdown-box">
+                    <span id="cd-minutes" class="cd-number">00</span>
+                    <span class="cd-label">DAKİKA</span>
+                </div>
+                <div class="countdown-separator">:</div>
+                <div class="countdown-box">
+                    <span id="cd-seconds" class="cd-number">00</span>
+                    <span class="cd-label">SANİYE</span>
+                </div>
+            </div>
+            
+            <button id="btn-scroll-to-buy" class="btn btn-primary hero-btn">
+                <span>Hemen Bilet Al (XLM)</span>
+                <i class="fa-solid fa-arrow-down"></i>
+            </button>
+        </div>
+    </section>
+
+    <div class="app-container" id="dashboard-section">
         <!-- Header -->
         <header class="app-header">
             <div class="brand">
