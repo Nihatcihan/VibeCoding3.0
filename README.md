@@ -35,7 +35,7 @@ Projeyi kendi bilgisayarınızda çalıştırmak için aşağıdaki adımları i
 
 1. Repoyu bilgisayarınıza indirin (Clone):
    ```bash
-   git clone https://github.com/KULLANICI_ADI/VibeCoding3.0.git
+   git clone https://github.com/Nihatcihan/VibeCoding3.0.git
    cd VibeCoding3.0
    ```
 2. Basit bir yerel sunucu (Live Server, Python HTTP Server veya Dotnet Serve) başlatın. Örneğin:
@@ -51,7 +51,7 @@ Projeyi kendi bilgisayarınızda çalıştırmak için aşağıdaki adımları i
 
 ## 🏆 Teslim Edilmesi Gerekenler
 
-- **GitHub Repo Linki:** [github.com/KULLANICI_ADI/VibeCoding3.0](https://github.com/KULLANICI_ADI/VibeCoding3.0) *(Kullanıcı adınızı buraya güncelleyiniz)*
+- **GitHub Repo Linki:** [github.com/Nihatcihan/VibeCoding3.0](https://github.com/Nihatcihan/VibeCoding3.0)
 - Proje kısa açıklaması, AI kullanım detayları ve Problem Tanımı yukarıda detaylıca listelenmiştir.
 
 ---
