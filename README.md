@@ -17,10 +17,11 @@ StellarPass ile kullanıcılar, organizatörün "Public Key" (Açık Anahtar) ad
 
 ## ⚙️ Teknik Uygulama ve Özellikler
 
-Proje, kusursuz çalışan bir cüzdan entegrasyonu sunar:
-- **Freighter Cüzdan Entegrasyonu:** Kullanıcılar tek tıkla cüzdanlarını bağlar, bakiyelerini anında görüntüler.
-- **Gerçek Zamanlı Ağ Bağlantısı:** Stellar Horizon API kullanılarak son işlemler (biletler) saniyeler içinde çekilir.
-- **Tamamen Responsive:** Modern, Glassmorphism tarzında UI/UX tasarımı. Gece/Gündüz modu ve QR Kod tarayıcı özellikleri mevcuttur.
+Proje, kusursuz çalışan bir cüzdan entegrasyonu ve etkinlik biletleme deneyimi sunar:
+- **VibeCoding AI Summit 2026 Açılış Sayfası:** Etkileyici "Abstract AI" arka planlı ve geri sayım sayaçlı Premium Hero Section.
+- **Freighter Cüzdan Entegrasyonu:** Kullanıcılar tek tıkla cüzdanlarını bağlar, testnet bakiyelerini anında görüntüler.
+- **Dijital V.I.P Bilet ve Sosyal Flex:** Bilet işlemi onaylandığında QR kodlu dinamik bir Dijital Bilet oluşur. Altındaki tek tıkla X'te (Twitter) paylaşım butonu, projenin viral organik büyüme potansiyelini (Social Proof) sergiler.
+- **Tamamen Responsive:** Modern, Glassmorphism tarzında UI/UX tasarımı. Gece/Gündüz modu, canlı parçacık animasyonları ve QR Kod tarayıcı özellikleri mevcuttur.
 
 ## 🤖 Kullanılan Teknolojiler ve AI Partnerliği
 
