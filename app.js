@@ -45,6 +45,9 @@ const btnCloseScannerModal = document.getElementById("btn-close-scanner-modal");
 const txtScannerStatus = document.getElementById("txt-scanner-status");
 const inputQrFile = document.getElementById("input-qr-file");
 
+const modalDigitalTicket = document.getElementById("modal-digital-ticket");
+const btnCloseTicketModal = document.getElementById("btn-close-ticket-modal");
+
 const cardTransactionsHistory = document.getElementById("card-transactions-history");
 const txHistoryLoading = document.getElementById("tx-history-loading");
 const txHistoryEmpty = document.getElementById("tx-history-empty");
@@ -176,8 +179,19 @@ function setupEventListeners() {
     
     // QR Scanner
     if (btnScanQr) btnScanQr.addEventListener("click", startQrScanner);
-    if (btnCloseScannerModal) btnCloseScannerModal.addEventListener("click", stopQrScanner);
-    if (inputQrFile) inputQrFile.addEventListener("change", handleQrFileUpload);
+    if (btnCloseScannerModal) {
+        btnCloseScannerModal.addEventListener("click", stopQrScanner);
+    }
+    
+    if (btnCloseTicketModal) {
+        btnCloseTicketModal.addEventListener("click", () => {
+            if (modalDigitalTicket) modalDigitalTicket.classList.add("hidden");
+        });
+    }
+    
+    if (inputQrFile) {
+        inputQrFile.addEventListener("change", handleQrFileUpload);
+    }
 }
 
 // Attempt to Auto-Connect if previously authorized
@@ -443,6 +457,30 @@ async function handleTransactionSubmission(event) {
         
         // 5. Success State
         showFeedback("success", "Biletiniz Hazır!", `Ödeme başarılı. Referans: ${result.hash}`, result.hash);
+        
+        // Show Digital Ticket
+        if (modalDigitalTicket) {
+            const elTicketAddress = document.getElementById("ticket-address");
+            const elTicketAmount = document.getElementById("ticket-amount");
+            const elTicketHash = document.getElementById("ticket-tx-hash");
+            
+            if (elTicketAddress) elTicketAddress.textContent = connectedPublicKey;
+            if (elTicketAmount) elTicketAmount.textContent = amount;
+            if (elTicketHash) elTicketHash.textContent = result.hash;
+            
+            const ticketQrCanvas = document.getElementById("ticket-qr-canvas");
+            if (ticketQrCanvas && typeof QRious !== 'undefined') {
+                new QRious({
+                    element: ticketQrCanvas,
+                    value: "https://stellar.expert/explorer/testnet/tx/" + result.hash,
+                    size: 150,
+                    background: 'white',
+                    foreground: '#0b0c10',
+                    level: 'M'
+                });
+            }
+            modalDigitalTicket.classList.remove("hidden");
+        }
         
         if (typeof confetti !== 'undefined') {
             confetti({

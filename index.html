@@ -298,6 +298,58 @@
             </div>
         </div>
     </div>
+    <!-- Digital Ticket (Boarding Pass) Modal -->
+    <div id="modal-digital-ticket" class="modal hidden">
+        <div class="modal-overlay"></div>
+        <div class="modal-container" style="background: transparent; border: none; box-shadow: none; max-width: 360px;">
+            <div class="digital-ticket" style="background: var(--bg-card); border-radius: 16px; overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); position: relative; border: 1px solid var(--border-color);">
+                
+                <!-- Ticket Header -->
+                <div style="background: linear-gradient(135deg, var(--primary), var(--primary-hover)); padding: 20px; color: white; text-align: center; border-bottom: 2px dashed rgba(255,255,255,0.3);">
+                    <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; opacity: 0.9;">Exclusive Event Pass</div>
+                    <h2 style="margin: 0; font-size: 22px; font-weight: 800; font-family: var(--font-heading);">StellarPass V.I.P</h2>
+                    <div style="margin-top: 4px; font-size: 13px; opacity: 0.9;">VibeCoding AI Summit 2026</div>
+                </div>
+                
+                <!-- Ticket Cutout Holes (Left and Right) -->
+                <div style="position: absolute; top: 96px; left: -10px; width: 20px; height: 20px; background: var(--bg-base); border-radius: 50%; box-shadow: inset -1px 0 3px rgba(0,0,0,0.1);"></div>
+                <div style="position: absolute; top: 96px; right: -10px; width: 20px; height: 20px; background: var(--bg-base); border-radius: 50%; box-shadow: inset 1px 0 3px rgba(0,0,0,0.1);"></div>
+
+                <!-- Ticket Body -->
+                <div style="padding: 24px 20px; text-align: center; background-image: radial-gradient(circle at center, var(--bg-body) 0%, transparent 70%);">
+                    
+                    <div style="margin-bottom: 20px;">
+                        <span style="font-size: 11px; color: var(--text-muted); text-transform: uppercase;">Ticket Holder (Wallet)</span>
+                        <div id="ticket-address" style="font-family: monospace; font-size: 14px; font-weight: 600; color: var(--text-primary); margin-top: 4px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">G...</div>
+                    </div>
+                    
+                    <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border-color); padding-bottom: 16px; margin-bottom: 20px;">
+                        <div style="text-align: left;">
+                            <span style="font-size: 11px; color: var(--text-muted); text-transform: uppercase;">Type</span>
+                            <div style="font-weight: 700; color: var(--primary);">V.I.P Access</div>
+                        </div>
+                        <div style="text-align: right;">
+                            <span style="font-size: 11px; color: var(--text-muted); text-transform: uppercase;">Paid (XLM)</span>
+                            <div id="ticket-amount" style="font-weight: 700; color: var(--text-primary);">0.00</div>
+                        </div>
+                    </div>
+
+                    <!-- QR Code Area -->
+                    <div style="background: white; padding: 12px; border-radius: 12px; display: inline-block; margin-bottom: 16px;">
+                        <canvas id="ticket-qr-canvas"></canvas>
+                    </div>
+                    
+                    <div style="font-size: 10px; color: var(--text-muted); word-break: break-all;">
+                        TX: <span id="ticket-tx-hash" style="font-family: monospace;">...</span>
+                    </div>
+                </div>
+
+                <button type="button" class="btn btn-secondary btn-block btn-close-modal" id="btn-close-ticket-modal" style="border-radius: 0; border: none; padding: 16px; font-weight: 600; border-top: 1px solid var(--border-color);">
+                    Kapat ve Biletlerim'e Dön
+                </button>
+            </div>
+        </div>
+    </div>
 
     <!-- Scripts -->
     <!-- Stellar SDK CDN -->
