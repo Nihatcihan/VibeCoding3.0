@@ -240,6 +240,7 @@ function disconnectWallet() {
     // Reset Header Button
     btnWalletToggle.classList.remove("connected");
     walletToggleText.textContent = "Cüzdanı Bağla";
+    btnWalletToggle.innerHTML = `<i class="fa-solid fa-ticket"></i> <span id="wallet-toggle-text">Cüzdanı Bağla</span>`;
     
     // Reset Details Card State
     cardWalletDetails.classList.remove("state-connected");
@@ -372,7 +373,7 @@ async function handleTransactionSubmission(event) {
     }
     
     if (!StellarSdk.StrKey.isValidEd25519PublicKey(recipient)) {
-        showFeedback("error", "Geçersiz Adres", "Lütfen geçerli bir Stellar public key girin (G ile başlar, 56 karakterdir).");
+        showFeedback("error", "Geçersiz Organizatör Adresi", "Lütfen etkinliği düzenleyenin geçerli bir Stellar public key'ini girin.");
         inputRecipient.focus();
         return;
     }
@@ -392,7 +393,7 @@ async function handleTransactionSubmission(event) {
     
     // Loading State
     setSubmitButtonLoading(true);
-    showFeedback("loading", "İşlem Hazırlanıyor", "Stellar ağından hesap bilgileri alınıyor ve işlem oluşturuluyor...");
+    showFeedback("loading", "Bilet Hazırlanıyor", "Cüzdanınızdan onay bekleniyor...");
     
     try {
         // 2. Build Transaction
@@ -435,13 +436,13 @@ async function handleTransactionSubmission(event) {
         }
         
         // 4. Submit Transaction to Testnet
-        showFeedback("loading", "İşlem Ağa Gönderiliyor", "İmzalanmış işlem Stellar test ağına iletiliyor...");
+        showFeedback("loading", "Bilet Onaylanıyor", "İşleminiz Stellar ağına iletiliyor...");
         
         const signedTx = StellarSdk.TransactionBuilder.fromXDR(signResult.signedTxXdr, "Test SDF Network ; September 2015");
         const result = await server.submitTransaction(signedTx);
         
         // 5. Success State
-        showFeedback("success", "İşlem Başarıyla Gerçekleşti", `<strong>${amount} XLM</strong> başarıyla alıcı adrese gönderildi.`, result.hash);
+        showFeedback("success", "Biletiniz Hazır!", `Ödeme başarılı. Referans: ${result.hash}`, result.hash);
         
         if (typeof confetti !== 'undefined') {
             confetti({
@@ -626,7 +627,7 @@ async function fetchTransactionHistory(address) {
                     } else {
                         isIncoming = false;
                         displayAddress = op.to;
-                        typeText = "Giden Ödeme";
+                        typeText = "Bilet Ücreti / Transfer";
                     }
                 } else if (op.type === "create_account") {
                     amount = op.starting_balance;
@@ -810,8 +811,10 @@ function initTheme() {
 
 function updateThemeIcon(btn, theme) {
     if (theme === "light") {
+        btnWalletToggle.innerHTML = `<i class="fa-solid fa-ticket"></i> <span id="wallet-toggle-text">Cüzdanı Bağla</span>`;
         btn.innerHTML = '<i class="fa-solid fa-moon"></i>';
     } else {
+        btnWalletToggle.innerHTML = `<i class="fa-solid fa-ticket"></i> <span id="wallet-toggle-text">Cüzdanı Bağla</span>`;
         btn.innerHTML = '<i class="fa-solid fa-sun"></i>';
     }
 }

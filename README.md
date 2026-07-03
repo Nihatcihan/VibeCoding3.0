@@ -1,61 +1,57 @@
-# NovaStellar Wallet Dashboard
+# StellarPass - Web3 Biletleme Sistemi 🎟️ (VibeCoding 3.0)
 
-## Project Description
-NovaStellar is a modern, web-based dashboard designed to interact with the Stellar Testnet. It provides users with a seamless Web3 experience by integrating with the Freighter browser wallet. Users can easily view their balances, receive payments via QR codes, track their transaction history, and send XLM to other addresses with interactive visual feedback. The application features a fully responsive UI, an eye-catching starry background, a dark/light mode toggle, and algorithmic profile avatars (Identicons) for all Stellar addresses.
+StellarPass, aracı kurumları ve devasa komisyon kesintilerini ortadan kaldıran, organizatörler ile katılımcıları doğrudan buluşturan merkeziyetsiz bir **Web3 etkinlik biletleme** sistemidir.
 
-## Features
-- **Wallet Connection:** Connect seamlessly using the Freighter extension.
-- **Balance & History:** Real-time balance updates and a detailed list of recent incoming/outgoing payments.
-- **Transaction Flow:** Send XLM securely with integrated Freighter signing.
-- **QR Code Suite:** Generate QR codes to receive funds and scan QR codes using a webcam or image upload to quickly input recipient addresses.
-- **Visual Enhancements:** Interactive particle background, Dark/Light theme switching, algorithmic address avatars (jdenticon), and confetti celebration on successful transactions.
+Bu proje, Stellar ağının (Testnet) hızını ve 0.00001 XLM gibi neredeyse sıfır olan işlem ücretlerini kullanarak, günlük hayattaki biletleme krizine (Mikro-ticketing) somut bir çözüm üretmek amacıyla geliştirilmiştir.
 
-## Setup Instructions (How to run locally)
+## 💡 Fikir ve Problem Tanımı
 
-1. **Clone the repository:**
+### Çözülen Problem
+Günümüzde etkinlik (konser, tiyatro, konferans) biletleri satan merkezi aracı kurumlar, bilet fiyatının üzerine **%10 ile %20 arasında** değişen hizmet bedelleri ve komisyonlar eklemektedir. Ayrıca organizatörler, bilet satış gelirlerini haftalar sonra alabilmektedir. 
+
+### Yaratıcı Çözüm: StellarPass
+StellarPass ile kullanıcılar, organizatörün "Public Key" (Açık Anahtar) adresine bilet ücretini (XLM olarak) saniyeler içinde ve komisyonsuz gönderirler.
+- **Anında İşlem:** Ödeme Stellar ağında 3-5 saniyede onaylanır.
+- **Şeffaflık:** Cüzdanınızdaki işlem geçmişi, bilet koçanınız (kanıtınız) olarak görev yapar. Kapıdaki görevliye, başarıyla onaylanan "Tx Hash"inizi göstererek içeri girebilirsiniz.
+- **Aracısız Ekonomi:** Organizatör, parasını aracı kurum beklemeksizin saniyeler içinde kendi cüzdanında görür.
+
+## ⚙️ Teknik Uygulama ve Özellikler
+
+Proje, kusursuz çalışan bir cüzdan entegrasyonu sunar:
+- **Freighter Cüzdan Entegrasyonu:** Kullanıcılar tek tıkla cüzdanlarını bağlar, bakiyelerini anında görüntüler.
+- **Gerçek Zamanlı Ağ Bağlantısı:** Stellar Horizon API kullanılarak son işlemler (biletler) saniyeler içinde çekilir.
+- **Tamamen Responsive:** Modern, Glassmorphism tarzında UI/UX tasarımı. Gece/Gündüz modu ve QR Kod tarayıcı özellikleri mevcuttur.
+
+## 🤖 Kullanılan Teknolojiler ve AI Partnerliği
+
+- **Frontend:** HTML5, CSS3 (Vanilla), JavaScript (ES6+). Herhangi bir ağır framework kullanılmadan, en yüksek performans ve modüler yapı için tasarlandı.
+- **Web3 / Blockchain:** Stellar JavaScript SDK, Freighter Wallet API, Horizon Testnet API.
+- **AI Kullanımı (VibeCoding):** Projenin sıfırdan mimari dizaynı, hata çözümü (debugging), UI animasyonları (parçacıklar, konfetiler) ve UX stratejisi tamamen **Google Antigravity (Agentic AI - Gemini)** tarafından "prompt mühendisliği" ile yazılmıştır. AI, sadece bir yardımcı olarak değil; projenin "Ürün Tasarımcısı" ve "Baş Geliştiricisi" (Lead Developer) rolünü üstlenerek değer katmıştır.
+
+## 🚀 Kurulum (Local'de Çalıştırma)
+
+Projeyi kendi bilgisayarınızda çalıştırmak için aşağıdaki adımları izleyebilirsiniz:
+
+1. Repoyu bilgisayarınıza indirin (Clone):
    ```bash
-   git clone <YOUR_GITHUB_REPO_URL>
-   cd stellar-wallet-app
+   git clone https://github.com/KULLANICI_ADI/VibeCoding3.0.git
+   cd VibeCoding3.0
    ```
-
-2. **Run a local web server:**
-   Because this application uses native browser APIs and interacts with browser wallet extensions, it must be run via a local web server (not by double-clicking the `index.html` file).
-   
-   If you have Node.js installed:
+2. Basit bir yerel sunucu (Live Server, Python HTTP Server veya Dotnet Serve) başlatın. Örneğin:
    ```bash
-   npx http-server -p 8080
+   npx serve .
    ```
-   *Alternatively, using Python:*
+   *veya*
    ```bash
-   python -m http.server 8080
+   dotnet serve -o -p 8080
    ```
-   *Alternatively, using .NET:*
-   ```bash
-   dotnet serve -p 8080
-   ```
+3. Tarayıcınızda `http://localhost:8080` adresine giderek StellarPass'i deneyimleyin!
+4. **Not:** Freighter tarayıcı eklentinizin kurulu olduğundan ve "Testnet" ağının seçili olduğundan emin olun.
 
-3. **Open the application:**
-   Navigate to `http://localhost:8080` in your web browser.
+## 🏆 Teslim Edilmesi Gerekenler
 
-4. **Wallet Setup:**
-   - Install the [Freighter Wallet Extension](https://www.freighter.app/).
-   - Open Freighter Settings and switch the network to **Testnet**.
-   - Fund your Testnet account using the [Stellar Laboratory Friendbot](https://laboratory.stellar.org/#account-creator?network=test).
+- **GitHub Repo Linki:** [github.com/KULLANICI_ADI/VibeCoding3.0](https://github.com/KULLANICI_ADI/VibeCoding3.0) *(Kullanıcı adınızı buraya güncelleyiniz)*
+- Proje kısa açıklaması, AI kullanım detayları ve Problem Tanımı yukarıda detaylıca listelenmiştir.
 
-## Screenshots
-
-### 1. Wallet Connected State
-![Wallet Connected State](screenshots/wallet-connected.png)
-*Shows the main dashboard after successfully connecting the Freighter wallet, displaying the user's address with an identicon.*
-
-### 2. Balance Displayed
-![Balance Displayed](screenshots/balance-displayed.png)
-*Shows the available XLM balance dynamically fetched from the Stellar Testnet Horizon network.*
-
-### 3. Successful Testnet Transaction
-![Successful Transaction](screenshots/successful-transaction.png)
-*Shows the transaction form with details filled out, or the Freighter popup prompting to sign.*
-
-### 4. Transaction Result Shown to User
-![Transaction Result](screenshots/transaction-result.png)
-*Shows the feedback card indicating a successful transaction along with the transaction hash link and confetti animation.*
+---
+*Geleceği inşa etmeye devam ediyoruz! 🚀*

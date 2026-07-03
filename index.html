@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="tr" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NovaStellar - Stellar Testnet Wallet Dashboard</title>
+    <title>StellarPass - Web3 Biletleme Sistemi</title>
     <meta name="description" content="Stellar Testnet Freighter cüzdan entegrasyonu, bakiye sorgulama ve hızlı XLM transfer paneli.">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,11 +23,11 @@
         <header class="app-header">
             <div class="brand">
                 <div class="logo-icon">
-                    <i class="fa-solid fa-meteor"></i>
+                    <i class="fa-solid fa-ticket"></i>
                 </div>
                 <div class="brand-text">
-                    <h1>NovaStellar</h1>
-                    <span>Stellar Testnet Gateway</span>
+                    <h1>StellarPass</h1>
+                    <span>Web3 Biletleme Sistemi</span>
                 </div>
             </div>
             
@@ -172,24 +172,24 @@
                     <!-- Transaction Flow Card -->
                     <section id="card-transaction" class="card tx-card disabled">
                         <div class="card-header">
-                            <i class="fa-solid fa-paper-plane header-icon"></i>
-                            <h2>XLM Gönder</h2>
+                            <i class="fa-solid fa-qrcode header-icon"></i>
+                            <h2>Bilet Satın Al</h2>
                         </div>
                         <div class="card-body">
                             <form id="form-send-tx">
                                 <div class="form-group">
-                                    <label for="input-recipient">Alıcı Stellar Adresi (Public Key)</label>
+                                    <label for="input-recipient">Organizatör Adresi (Public Key)</label>
                                     <div class="input-wrapper">
-                                        <input type="text" id="input-recipient" placeholder="G... ile başlayan 56 karakterli adres" style="padding-right: 48px;" disabled required>
-                                        <i class="fa-solid fa-key input-icon"></i>
-                                        <button type="button" id="btn-scan-qr" class="btn-input-action-right" title="QR Kod Tara" disabled>
+                                        <input type="text" id="input-recipient" placeholder="G..." disabled required>
+                                        <i class="fa-solid fa-address-card input-icon"></i>
+                                        <button type="button" id="btn-scan-qr" class="btn-input-action" disabled>
                                             <i class="fa-solid fa-camera"></i>
                                         </button>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="input-amount">Tutar (XLM)</label>
+                                    <label for="input-amount">Bilet Ücreti (XLM)</label>
                                     <div class="input-wrapper">
                                         <input type="number" id="input-amount" step="0.0000001" min="0.0000001" placeholder="0.00" disabled required>
                                         <i class="fa-solid fa-coins input-icon"></i>
@@ -198,15 +198,15 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="input-memo">Memo (İsteğe Bağlı)</label>
+                                    <label for="input-memo">Etkinlik Referans Kodu (Memo)</label>
                                     <div class="input-wrapper">
-                                        <input type="text" id="input-memo" maxlength="28" placeholder="Mesaj veya referans kodu" disabled>
-                                        <i class="fa-solid fa-message input-icon"></i>
+                                        <input type="text" id="input-memo" maxlength="28" placeholder="Opsiyonel Etkinlik Kodu" disabled>
+                                        <i class="fa-solid fa-ticket input-icon"></i>
                                     </div>
                                 </div>
 
                                 <button type="submit" id="btn-submit-tx" class="btn btn-primary btn-block" disabled>
-                                    <span>Gönderimi Başlat</span>
+                                    <span>Bileti Onayla ve Al</span>
                                     <i class="fa-solid fa-arrow-right"></i>
                                 </button>
                             </form>
@@ -217,15 +217,15 @@
                     <section id="card-transactions-history" class="card tx-history-card disabled">
                         <div class="card-header">
                             <i class="fa-solid fa-clock-rotate-left header-icon"></i>
-                            <h2>Son İşlemler (Son 10 Ödeme)</h2>
+                            <h2>Biletlerim / İşlem Geçmişi</h2>
                         </div>
                         <div class="card-body" style="padding: 16px 20px;">
                             <div id="tx-history-loading" class="tx-history-loading-state hidden" style="text-align: center; padding: 24px; color: var(--text-secondary); font-size: 14px;">
-                                <i class="fa-solid fa-circle-notch spinner" style="margin-right: 8px;"></i> Arama yapılıyor...
+                                <i class="fa-solid fa-circle-notch spinner" style="margin-right: 8px;"></i> Biletler yükleniyor...
                             </div>
                             <div id="tx-history-empty" class="tx-history-empty-state" style="text-align: center; padding: 24px; color: var(--text-muted); font-size: 14px;">
-                                <i class="fa-solid fa-receipt" style="display: block; font-size: 28px; margin-bottom: 12px; color: var(--border-color);"></i>
-                                Henüz bir işlem bulunmuyor veya cüzdan bağlı değil.
+                                <i class="fa-solid fa-ticket" style="display: block; font-size: 28px; margin-bottom: 12px; color: var(--border-color);"></i>
+                                Henüz bir biletiniz bulunmuyor.
                             </div>
                             <ul id="tx-history-list" class="tx-history-list hidden" style="list-style: none; display: flex; flex-direction: column; gap: 12px; max-height: 380px; overflow-y: auto; padding-right: 4px;">
                                 <!-- Dynamic entries go here -->
@@ -245,7 +245,7 @@
         
         <!-- Footer -->
         <footer class="app-footer">
-            <p>&copy; 2026 NovaStellar. Tüm Hakları Saklıdır. Built with Google Antigravity & Stellar SDK.</p>
+            <p>&copy; 2026 StellarPass (VibeCoding 3.0). Tüm Hakları Saklıdır. Built with Google Antigravity & Stellar SDK.</p>
         </footer>
     </div>
 
