@@ -464,7 +464,7 @@ async function handleTransactionSubmission(event) {
             const elTicketAmount = document.getElementById("ticket-amount");
             const elTicketHash = document.getElementById("ticket-tx-hash");
             
-            if (elTicketAddress) elTicketAddress.textContent = connectedPublicKey;
+            if (elTicketAddress) elTicketAddress.textContent = connectedAddress;
             if (elTicketAmount) elTicketAmount.textContent = amount;
             if (elTicketHash) elTicketHash.textContent = result.hash;
             
